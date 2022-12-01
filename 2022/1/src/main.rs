@@ -21,15 +21,10 @@ fn main() -> Result<(), String> {
     }
 
     elfs.sort();
-    part1(&elfs)?;
-    part2(&elfs)?;
-    Ok(())
-}
-fn part1(elfs: &Vec<i32>) -> Result<(), String> {
+
+    // part 1
     println!("most cals! {}", elfs.last().unwrap());
-    Ok(())
-}
-fn part2(elfs: &Vec<i32>) -> Result<(), String> {
+    // part2
     println!(
         "top three combined! {}",
         elfs[elfs.len() - 3..elfs.len()].iter().sum::<i32>()
