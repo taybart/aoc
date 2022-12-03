@@ -49,7 +49,7 @@ mod tests {
     #[test]
     fn part2() -> Result<(), String> {
         let input = std::fs::read_to_string("./src/input.txt")
-            .map_err(|e| format!("read file failed {}", e))?;
+            .map_err(|e| format!("read file failed {e}"))?;
         assert_eq!(solve(input)?, 11998);
         Ok(())
     }

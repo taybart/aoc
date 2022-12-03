@@ -6,8 +6,8 @@ fn main() -> Result<(), String> {
 }
 
 fn parse_input() -> Result<Vec<i32>, String> {
-    let input = std::fs::read_to_string("./src/input.txt")
-        .map_err(|e| format!("read file failed {}", e))?;
+    let input =
+        std::fs::read_to_string("./src/input.txt").map_err(|e| format!("read file failed {e}"))?;
 
     let mut elfs: Vec<i32> = vec![];
     for (i, elf) in input.split("\n\n").enumerate() {
@@ -17,7 +17,7 @@ fn parse_input() -> Result<Vec<i32>, String> {
             if n.len() > 0 {
                 elfs[i] += n
                     .parse::<i32>()
-                    .map_err(|e| format!("unable to parse string {}", e))?;
+                    .map_err(|e| format!("unable to parse string {e}"))?;
             }
         }
     }

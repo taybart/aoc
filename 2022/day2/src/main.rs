@@ -41,14 +41,15 @@ impl Outcome {
             "X" => Ok(Outcome::Lose),
             "Y" => Ok(Outcome::Draw),
             "Z" => Ok(Outcome::Win),
-            _ => Err(format!("unknown move {}", input)),
+            _ => Err(format!("unknown move {input}")),
         }
     }
 }
 
 fn main() -> Result<(), String> {
-    let input = std::fs::read_to_string("./src/input.txt")
-        .map_err(|e| format!("read file failed {}", e))?;
+    // let input = "A Y\nB X\nC Z".to_string();
+    let input =
+        std::fs::read_to_string("./src/input.txt").map_err(|e| format!("read file failed {e}"))?;
     println!("part1 score: {}", part1::solve(input.clone())?);
     println!("part2 score: {}", part2::solve(input.clone())?);
     Ok(())
