@@ -9,17 +9,11 @@ pub fn matches(ranges: [u32; 4]) -> bool {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::solve;
+    use crate::{solve, EXAMPLE_INPUT};
 
     #[test]
     fn part1_example() -> Result<(), String> {
-        let example_input = "2-4,6-8
-2-3,4-5
-5-7,7-9
-2-8,3-7
-6-6,4-6
-2-6,4-8"
-            .to_string();
+        let example_input = EXAMPLE_INPUT.to_string();
         assert_eq!(solve(example_input, matches)?, 4);
         Ok(())
     }
