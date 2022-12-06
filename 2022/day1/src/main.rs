@@ -12,9 +12,9 @@ fn parse_input() -> Result<Vec<i32>, String> {
     let mut elfs: Vec<i32> = vec![];
     for (i, elf) in input.split("\n\n").enumerate() {
         elfs.push(0);
-        for n in elf.split("\n") {
+        for n in elf.split('\n') {
             // sometimes splits are empty
-            if n.len() > 0 {
+            if !n.is_empty() {
                 elfs[i] += n
                     .parse::<i32>()
                     .map_err(|e| format!("unable to parse string {e}"))?;
@@ -26,7 +26,7 @@ fn parse_input() -> Result<Vec<i32>, String> {
     Ok(elfs)
 }
 
-fn part1(elfs: &Vec<i32>) -> i32 {
+fn part1(elfs: &[i32]) -> i32 {
     match elfs.last() {
         Some(i) => *i,
         None => -1,

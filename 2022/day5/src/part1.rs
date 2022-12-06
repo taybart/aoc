@@ -11,9 +11,9 @@ struct Move {
 fn build_stacks(input: String) -> HashMap<u32, VecDeque<String>> {
     let mut stacks = HashMap::new();
     let split: Vec<&str> = input.split("\n\n").collect();
-    let mut rows: Vec<&str> = split.get(0).unwrap().split("\n").collect();
+    let mut rows: Vec<&str> = split.first().unwrap().split('\n').collect();
     let col_names = rows.pop();
-    for col_name in col_names.unwrap().split(" ") {
+    for col_name in col_names.unwrap().split(' ') {
         if col_name.is_empty() {
             continue;
         }
@@ -24,7 +24,7 @@ fn build_stacks(input: String) -> HashMap<u32, VecDeque<String>> {
     let re = Regex::new(r"\s\s\s\s").unwrap();
     for row in rows.iter() {
         let mut col_num = 1;
-        for column_entry in re.replace_all(row, " ").split(" ") {
+        for column_entry in re.replace_all(row, " ").split(' ') {
             let col = stacks.get_mut(&col_num).unwrap();
             if !column_entry.is_empty() {
                 let letter = column_entry.chars().nth(1).unwrap();
@@ -42,7 +42,7 @@ fn build_moves(input: String) -> Vec<Move> {
     let mut moves: Vec<Move> = Vec::new();
     let split: Vec<&str> = input.split("\n\n").collect();
     // bottom
-    let instructions: Vec<&str> = split.get(1).unwrap().split("\n").collect();
+    let instructions: Vec<&str> = split.get(1).unwrap().split('\n').collect();
     for instruction in instructions.iter() {
         if instruction.is_empty() {
             continue;
@@ -57,8 +57,8 @@ fn build_moves(input: String) -> Vec<Move> {
         m.to = caps.get(3).map_or("", |m| m.as_str()).parse().unwrap();
 
         let test = format!("move {} from {} to {}", m.amount, m.from, m.to);
-        if test != instruction.to_string() {
-            panic!("{} != {}", test, instruction.to_string())
+        if test != *instruction.to_owned() {
+            panic!("{} != {}", test, instruction)
         }
         moves.push(m);
     }

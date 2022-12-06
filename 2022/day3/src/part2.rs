@@ -6,10 +6,10 @@ fn get_intersection(elf_group: Vec<HashSet<char>>) -> Result<char, String> {
     let second = elf_group.get(1).unwrap();
     let third = elf_group.get(2).unwrap();
 
-    let mut c = first.intersection(&second).copied().collect::<Vec<char>>();
+    let mut c = first.intersection(second).copied().collect::<Vec<char>>();
 
     let hs_c = c.into_iter().collect::<HashSet<char>>();
-    c = hs_c.intersection(&third).copied().collect::<Vec<char>>();
+    c = hs_c.intersection(third).copied().collect::<Vec<char>>();
 
     match c.len() {
         1 => Ok(c[0]),
@@ -23,7 +23,7 @@ pub fn solve(input: String) -> Result<u32, String> {
     let mut score = 0;
 
     let mut elf_group: Vec<HashSet<char>> = Vec::with_capacity(3);
-    for rucksack in input.split("\n") {
+    for rucksack in input.split('\n') {
         if rucksack.is_empty() {
             continue;
         }

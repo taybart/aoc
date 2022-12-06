@@ -10,17 +10,17 @@ const EXAMPLE_INPUT: &str = "2-4,6-8
 
 pub fn solve(input: String, matches: fn([u32; 4]) -> bool) -> Result<u32, String> {
     let mut res = 0;
-    for assignments in input.split("\n") {
+    for assignments in input.split('\n') {
         if assignments.is_empty() {
             continue;
         }
         let mut ranges = [0; 4];
         let mut i = 0;
-        for assigned_zones in assignments.split(",") {
+        for assigned_zones in assignments.split(',') {
             if assigned_zones.is_empty() {
                 continue;
             }
-            for zones in assigned_zones.split("-") {
+            for zones in assigned_zones.split('-') {
                 if zones.is_empty() {
                     continue;
                 }

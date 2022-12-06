@@ -16,7 +16,7 @@ fn get_intersection(rucksack: &str) -> Result<char, String> {
 pub fn solve(input: String) -> Result<u32, String> {
     let scores = make_scores();
     let mut score = 0;
-    for rucksack in input.split("\n") {
+    for rucksack in input.split('\n') {
         if rucksack.is_empty() {
             continue;
         }

@@ -23,11 +23,11 @@ fn choose_shape(shape: Shape, outcome: Outcome) -> Shape {
 
 pub fn solve(input: String) -> Result<i32, String> {
     let mut score = 0;
-    for round in input.split("\n") {
-        if round.len() == 0 {
+    for round in input.split('\n') {
+        if round.is_empty() {
             continue;
         }
-        let mut moves = round.split(" ");
+        let mut moves = round.split(' ');
         let thiers = Shape::from_str(moves.next().unwrap())?;
         let outcome = Outcome::from_str(moves.next().unwrap())?;
         let ours = choose_shape(thiers, outcome);

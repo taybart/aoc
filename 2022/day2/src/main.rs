@@ -51,6 +51,6 @@ fn main() -> Result<(), String> {
     let input =
         std::fs::read_to_string("./src/input.txt").map_err(|e| format!("read file failed {e}"))?;
     println!("part1 score: {}", part1::solve(input.clone())?);
-    println!("part2 score: {}", part2::solve(input.clone())?);
+    println!("part2 score: {}", part2::solve(input)?);
     Ok(())
 }

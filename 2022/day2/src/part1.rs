@@ -12,11 +12,11 @@ fn get_outcome(opponent: Shape, us: Shape) -> Outcome {
 
 pub fn solve(input: String) -> Result<i32, String> {
     let mut score = 0;
-    for round in input.split("\n") {
-        if round.len() == 0 {
+    for round in input.split('\n') {
+        if round.is_empty() {
             continue;
         }
-        let mut moves = round.split(" ");
+        let mut moves = round.split(' ');
         let opponent = Shape::from_str(moves.next().unwrap())?;
         let us = Shape::from_str(moves.next().unwrap())?;
         score += us as i32 + get_outcome(opponent, us) as i32;
