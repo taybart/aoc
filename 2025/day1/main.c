@@ -6,9 +6,6 @@
 // #define DEBUG
 #include "./aoc.h"
 
-const bool do_solution = true;
-
-int line_to_instruction(char *line);
 int *instructions_from_file(char *filename, int *len);
 
 // 1150
@@ -64,13 +61,13 @@ int part2(int *instructions, size_t len) {
   return count;
 }
 
-void test_solve_part1(void) {
+void part1_test(void) {
   int len = 0;
   int *instructions = instructions_from_file("test.txt", &len);
   int answer = part1(instructions, len);
   ASSERT_WITH_MSG(answer == 3, "got %d, expected 3", answer);
 }
-void test_solve_part2(void) {
+void part2_test(void) {
   int len = 0;
   int *instructions = instructions_from_file("test.txt", &len);
   int answer = part2(instructions, len);
@@ -78,18 +75,14 @@ void test_solve_part2(void) {
 }
 
 int main(void) {
-  test_solve_part1();
-  test_solve_part2();
+  part1_test();
+  part2_test();
 
-  if (do_solution) {
-    int len = 0;
-    int *instructions = instructions_from_file("input.txt", &len);
+  int len = 0;
+  int *instructions = instructions_from_file("input.txt", &len);
 
-    printf("part1: %d\n", part1(instructions, len));
-
-    printf("part2: %d\n", part2(instructions, len));
-  }
-
+  printf("part1: %d\n", part1(instructions, len));
+  printf("part2: %d\n", part2(instructions, len));
   return 0;
 }
 
