@@ -1,0 +1,20 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-c",
+      "-std=c23",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-pedantic",
+      "-g",
+      "-o",
+      "answer",
+      "main.c"
+    ],
+    "directory": "/Users/taylor/dev/taybart/aoc/2025/day1",
+    "file": "/Users/taylor/dev/taybart/aoc/2025/day1/main.c",
+    "output": "/Users/taylor/dev/taybart/aoc/2025/day1/answer"
+  }
+]
