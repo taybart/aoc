@@ -11,8 +11,8 @@ const bool do_solution = true;
 int line_to_instruction(char *line);
 int *instructions_from_file(char *filename, int *len);
 
+// 1150
 int part1(int *instructions, size_t len) {
-  // 1150
   int dial = 50;
   int num_zeros = 0;
   for (size_t i = 0; i < len; i++) {
@@ -25,7 +25,7 @@ int part1(int *instructions, size_t len) {
   return num_zeros;
 }
 
-// 6738, have 6634
+// 6738
 int part2(int *instructions, size_t len) {
   int dial = 50;
   int count = 0;
