@@ -42,7 +42,7 @@ int part2(int *instructions, size_t len) {
 
     // reconsile oob values, each loop is passing over zero
     while (dial > 100 || dial < 0) {
-      while (dial >= 100) {
+      if (dial >= 100) {
         dial -= 100;
         count += 1;
       }
