@@ -11,6 +11,12 @@
     }                                                                          \
   } while (0)
 
+#define println(...)                                                           \
+  do {                                                                         \
+    printf(__VA_ARGS__);                                                       \
+    putchar('\n');                                                             \
+  } while (0)
+
 #ifdef DEBUG
 #define DEBUGF(...) printf(__VA_ARGS__)
 #else

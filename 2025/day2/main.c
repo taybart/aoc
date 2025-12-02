@@ -41,31 +41,29 @@ int part1_example(void) {
 
 int main(void) {
   if (part1_example()) {
-    perror("something went wrong in example");
-    printf("ahhhhh\n");
+    perror("something went wrong in p1_example");
     return 1;
   }
 
   // auto len = 0;
   // auto *lines = read("input.txt", &len);
   //
-  // printf("part1: %d\n", part1(lines, len));
-  // printf("part2: %d\n", part2(lines, len));
+  // println("part1: %d", part1(lines, len));
+  // println("part2: %d", part2(lines, len));
 
   return 0;
 }
 
 void convert_line(const char *line, int out[LEVELS]) {
-  const char *p = line;
   for (int i = 0; i < LEVELS; ++i) {
-    out[i] = (int)strtol(p, (char **)&p, 10);
+    out[i] = strtol(line, (char **)&line, 10);
   }
 }
 
 int (*read(const char *filename, int *nrows))[LEVELS] {
   FILE *fp = fopen(filename, "r");
   if (!fp) {
-    printf("failed to open file\n");
+    println("failed to open file");
     perror("fopen");
     return NULL;
   }
@@ -73,7 +71,7 @@ int (*read(const char *filename, int *nrows))[LEVELS] {
   size_t cap = 16;
   int(*block)[LEVELS] = malloc(cap * sizeof *block);
   if (!block) {
-    printf("failed malloc of blocks\n");
+    println("failed malloc of blocks");
     fclose(fp);
     return NULL;
   }
